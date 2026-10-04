@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Data  xmlns="xsd" xmlns:ns="http://www.w3.org/2001/XMLSchema-instance" ns:schemaLocation="xsd ../ParadigmSchema.xsd">
+  <Paradigm BaseFolder="media/" TaskOrder="Deterministic">
+    <Task ns:type="SingleTask" ID="ST_PreParadigm" DurationSeconds="20" Group="0">
+      <Stimulus ns:type="PictureStimulus" FileName="CheckerReversalRest.png" HorizontalAlignment="Center" VerticalAlignment="Center" Scaling="Fit" />
+    </Task>
+	<Task ns:type="MultiTask" ID="MT_Wrapper" TaskOrder="Deterministic" SampleSize="100">
+	
+		 <Task ns:type="SingleTask" ID="CheckerReversal1" DurationSeconds="0.5" Group="1">
+		  <Stimulus ns:type="PictureStimulus" FileName="CheckerReversal1.png" HorizontalAlignment="Center" VerticalAlignment="Center" Scaling="Fit"/>
+		 </Task>
+		 <Task ns:type="SingleTask" ID="CheckerReversal2" DurationSeconds="0.5" Group="2">
+		  <Stimulus ns:type="PictureStimulus" FileName="CheckerReversal2.png" HorizontalAlignment="Center" VerticalAlignment="Center" Scaling="Fit"/>
+		 </Task>
+		
+	</Task>
+  </Paradigm>
+</Data>
