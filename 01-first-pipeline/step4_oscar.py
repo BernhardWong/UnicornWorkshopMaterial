@@ -30,7 +30,7 @@ if __name__ == "__main__":
     # discovered is used, and it reports its own configuration. Pass
     # `serial=` to pick a specific device when more than one is in range,
     # or `channel_count=` to take fewer channels than it offers.
-    source = gp.BCICore(enable_oscar=True)
+    source = gp.BCICore(serial="U4-2025.10.26", enable_oscar=True, channel_count=4)
 
     # === SIGNAL CONDITIONING ===
     # 1-30 Hz keeps the major brain rhythms and drops DC drift below and

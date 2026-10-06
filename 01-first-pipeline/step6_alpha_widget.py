@@ -102,7 +102,7 @@ if __name__ == "__main__":
 
     with gp.Pipeline() as p:
 
-        source = gp.BCICore()
+        source = gp.BCICore(serial="U4-2025.10.26", channel_count=4)
 
         # No amplifier on this machine? Swap in a synthetic signal:
         #     source = gp.Generator(signal_amplitude=15.0,

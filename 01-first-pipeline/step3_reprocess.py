@@ -23,13 +23,14 @@ import gpype as gp
 
 if __name__ == "__main__":
 
+    channel_count = 4
     app = gp.MainApp()
     p = gp.Pipeline()
 
     # === SOURCES -- the only things that are recorded ===
     # Name them: the name is the file each is filed under, eeg.h5 and
     # keys.h5, and it is how the replay pairs them up again.
-    source = gp.BCICore(name="eeg")
+    source = gp.BCICore(serial="U4-2025.10.26", name="eeg", channel_count=channel_count)
     keyboard = gp.Keyboard(name="keys")
 
     # === ANALYSIS -- rebuilt on every run, never recorded ===
@@ -48,10 +49,10 @@ if __name__ == "__main__":
         amplitude_limit=30,
         time_window=10,
         markers=[
-            mk(color="r", label="up", channel=8, value=38),
-            mk(color="g", label="right", channel=8, value=39),
-            mk(color="b", label="down", channel=8, value=40),
-            mk(color="k", label="left", channel=8, value=37),
+            mk(color="r", label="up", channel=channel_count, value=38),
+            mk(color="g", label="right", channel=channel_count, value=39),
+            mk(color="b", label="down", channel=channel_count, value=40),
+            mk(color="k", label="left", channel=channel_count, value=37),
         ],
     )
 
