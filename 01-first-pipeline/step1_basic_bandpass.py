@@ -18,15 +18,18 @@ if __name__ == "__main__":
     p = gp.Pipeline()
 
     # signal generator
-    source = gp.Generator(
-        sampling_rate=250,
-        channel_count=8,
-        signal_frequency=10,
-        signal_amplitude=10,
-        signal_shape="sine",
-        noise_amplitude=1,
-        frame_size=10,
-    )
+    # source = gp.Generator(
+    #     sampling_rate=250,
+    #     channel_count=4,
+    #     signal_frequency=10,
+    #     signal_amplitude=1,
+    #     signal_shape="sine",
+    #     noise_amplitude=10,
+    #     frame_size=10,
+    # )
+
+    # BCI Core-4/8 - real-time EEG acquisition from either device
+    source = gp.BCICore(serial="U4-2025.10.45", enable_oscar=False, channel_selection=range(4))
 
     # bandpass
     filter = gp.Bandpass(f_lo=9, f_hi=11)
@@ -43,5 +46,9 @@ if __name__ == "__main__":
 
     # start pipeline and main app
     p.start()
+
+    # Start the GUI event loop
     app.run()
-    p.stop()
+
+    # When the GUI is closed, stop the pipeline
+    p.stop()    
